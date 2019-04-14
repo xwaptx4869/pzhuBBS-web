@@ -9,8 +9,11 @@
           <el-input v-model="searchValue" suffix-icon="el-icon-search" placeholder="搜索想看的文章"></el-input>
     </div>
     <div class="rightbox">
+        <span class="write">写文章</span>
          <span v-if="!isLogin"  >
-                登录
+               <a href="javascript:;">登录</a>
+               ·
+               <a href="javascript:;">注册</a> 
             </span>
             <span v-if="isLogin" class="nav-right-action">
                 <svg-icon icon-class="bell" />
@@ -21,11 +24,8 @@
                     <span>{{ user.name }}</span>
                 </span>
                 <el-dropdown-menu slot="dropdown">
-                    <el-dropdown-item command="/account/subjectInfo">主体信息</el-dropdown-item>
-                    <el-dropdown-item command="/account/bank">银行账户</el-dropdown-item>
-                    <el-dropdown-item command="/account/sp">渠道管理</el-dropdown-item>
-                    <el-dropdown-item command="/account/team">团队管理</el-dropdown-item>
-                    <el-dropdown-item command="/account/personal">个人信息</el-dropdown-item>
+                    <el-dropdown-item command="/personal">个人信息</el-dropdown-item>
+                    <el-dropdown-item command="/articlemanage">文章管理</el-dropdown-item>
                     <el-dropdown-item divided command="logout">退出登录</el-dropdown-item>
                 </el-dropdown-menu>
             </el-dropdown>
@@ -35,11 +35,15 @@
 </template>
 
 <script>
+import svgIcon from './SvgIcon/index'
 export default {
+    components:{
+    svgIcon
+    },
     data(){
         return{
             searchValue:'',
-            isLogin:true,
+            isLogin:false,
             user:{
                 name:'xuwei'
             }
@@ -76,8 +80,11 @@ export default {
       min-width: 1170px;
       height: 50px;
       background: #fff;
-      position: relative;
-      box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+      position: fixed;
+      top: 0px;
+    //   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+      box-shadow: 0 2px 2px rgba(0,0,0,.05), 0 1px 0 rgba(0,0,0,.05);
+        z-index: 999;
     .navbar-content{
       position: absolute;
       left: 50%;
@@ -103,6 +110,13 @@ export default {
       }
       .rightbox{
           float: right;
+         a{
+             color: #000;
+             }
+          .write{
+              padding-right: 20px;
+              cursor: pointer;
+          }
       }
     }
   }
