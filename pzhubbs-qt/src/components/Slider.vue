@@ -127,7 +127,7 @@ export default {
 <style lang="scss" scoped>
 .slider {
   width: 200px;
-  height: 1500px;
+  height: 100%;
   box-sizing: border-box;
   background: rgb(28, 43, 54);
   color: #fff;

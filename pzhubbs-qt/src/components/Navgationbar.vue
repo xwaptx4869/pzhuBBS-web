@@ -82,9 +82,8 @@ export default {
       background: #fff;
       position: fixed;
       top: 0px;
-    //   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
       box-shadow: 0 2px 2px rgba(0,0,0,.05), 0 1px 0 rgba(0,0,0,.05);
-        z-index: 999;
+      z-index: 999;
     .navbar-content{
       position: absolute;
       left: 50%;
@@ -93,6 +92,7 @@ export default {
       width: 1170px;
       .tohome{
           float: left;
+          margin-left: 40px;
           h4{
               color:rgb(92, 225, 230);
               display: inline-block;
@@ -110,6 +110,7 @@ export default {
       }
       .rightbox{
           float: right;
+          margin-right: 40px;
          a{
              color: #000;
              }

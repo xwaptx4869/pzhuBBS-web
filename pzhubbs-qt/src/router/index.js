@@ -1,7 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Navigationbar from '@/components/Navgationbar'
-import page from '@/components/Page'
 
 Vue.use(Router)
 
@@ -9,8 +7,14 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'page',
-      component: page
+      name: 'home',
+      component:resolve => require(['@/components/Page.vue'],resolve),
+      children:[
+        {
+          path:'/',
+          component:resolve =>require(['@/components/Home.vue'],resolve)
+        }
+      ]
     }
   ]
 })
