@@ -7,7 +7,6 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
       component:resolve => require(['@/components/Page.vue'],resolve),
       children:[
         {

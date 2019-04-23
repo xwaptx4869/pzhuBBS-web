@@ -11,9 +11,9 @@
     <div class="rightbox">
         <span class="write">写文章</span>
          <span v-if="!isLogin"  >
-               <a href="javascript:;">登录</a>
+               <a @click="setVisible('登录')" href="javascript:;">登录</a>
                ·
-               <a href="javascript:;">注册</a> 
+               <a @click="setVisible('注册') " href="javascript:;">注册</a> 
             </span>
             <span v-if="isLogin" class="nav-right-action">
                 <svg-icon icon-class="bell" />
@@ -46,11 +46,19 @@ export default {
             isLogin:false,
             user:{
                 name:'xuwei'
-            }
+            },
+            title:'登录',
+            visible:false,
+            status:''
         }
     },
     created(){
         
+    },
+    watch:{
+        visible(val){
+        this.status = val
+        }
     },
     methods:{
       handleCommand(command) {
@@ -68,6 +76,10 @@ export default {
             this.$store.dispatch('Logout').then(() => {
                 location.reload(); // In order to re-instantiate the vue-router object to avoid bugs
             });
+        },
+        setVisible(val){
+            this.visible = true;
+            this.$emit('transferGetVisible',this.status,val)
         }
     }
     
@@ -77,7 +89,6 @@ export default {
 <style lang="scss" scoped>
   .navbar{
       width: 100%;
-      min-width: 1170px;
       height: 50px;
       background: #fff;
       position: fixed;
@@ -89,7 +100,8 @@ export default {
       left: 50%;
       line-height: 50px;
       transform: translateX(-50%);
-      width: 1170px;
+    //   width: 1170px;
+      min-width: 1170px;
       .tohome{
           float: left;
           margin-left: 40px;

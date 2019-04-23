@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <div class="wrapper">
-      <navgationbar></navgationbar>
+      <navgationbar @transferGetVisible="getVisible" ></navgationbar>
       <div class="content">
         <div class="slider">
           <slider></slider>
@@ -15,6 +15,7 @@
           <side></side>
         </div>
       </div>
+      <login :isvisible.sync="visible" :title.sync="title" @transferGetStatus ="getVisible" ></login>
     </div>
   </div>
 </template>
@@ -22,11 +23,25 @@
 import Navgationbar from "../components/Navgationbar";
 import side from "../components/Side";
 import slider from "../components/Slider";
+import login from "../components/LoginRegist";
 export default {
+  data(){
+    return {
+      visible:false,
+      title:''
+    }
+  },
   components: {
     Navgationbar,
     side,
-    slider
+    slider,
+    login
+  },
+  methods:{
+    getVisible(visible,title){
+      this.visible = visible;
+      this.title = title;
+    }
   }
 };
 </script>
@@ -37,20 +52,20 @@ export default {
 }
 .wrapper {
   width: 100%;
-  min-width: 1170px;
   position: relative;
+  height: 100%;
+  overflow-y: scroll;
+   &::-webkit-scrollbar {
+    display: none;
+  }
 }
 .content {
   padding-top: 50px;
   width: 1170px;
   box-sizing: border-box;
-  overflow-y: scroll;
   background: #f1f3f4;
   position: absolute;
   left: 50%;
-  &::-webkit-scrollbar {
-    display: none;
-  }
   transform: translateX(-50%);
   .slider {
     float: left;

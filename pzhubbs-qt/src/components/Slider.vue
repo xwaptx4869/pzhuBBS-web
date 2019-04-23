@@ -131,6 +131,16 @@ export default {
   box-sizing: border-box;
   background: rgb(28, 43, 54);
   color: #fff;
+  &::before{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    width: inherit;
+    background-color: inherit;
+    border: 0;
+    content: "";
+  }
   .head {
     padding-left: 10px;
     margin-top: 20px;
