@@ -9,7 +9,7 @@
           <el-input v-model="searchValue" suffix-icon="el-icon-search" placeholder="搜索想看的文章"></el-input>
     </div>
     <div class="rightbox">
-        <span class="write">写文章</span>
+        <span class="write" @click=" isLogin ? $router.push({ path:'/article/write' }): setVisible('登录')  "><i class="el-icon-tickets" ></i> 写文章</span>
          <span v-if="!isLogin"  >
                <a @click="setVisible('登录')" href="javascript:;">登录</a>
                ·
