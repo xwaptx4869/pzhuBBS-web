@@ -100,7 +100,7 @@ export default {
       left: 50%;
       line-height: 50px;
       transform: translateX(-50%);
-    //   width: 1170px;
+      width: 1400px;
       min-width: 1170px;
       .tohome{
           float: left;
@@ -133,4 +133,9 @@ export default {
       }
     }
   }
+  @media only screen and (max-width: 1500px) {
+    .navbar-content {
+        width:1170px !important;
+    }
+}
 </style>

@@ -61,7 +61,8 @@ export default {
 }
 .content {
   padding-top: 50px;
-  width: 1170px;
+  width: 1400px;
+  min-width: 1170px;
   box-sizing: border-box;
   background: #f1f3f4;
   position: absolute;
@@ -72,7 +73,7 @@ export default {
     height: 100%;
   }
   .content-box {
-    width: 730px;
+    width: 960px;
     display: inline-block;
   }
   .right-box {
@@ -80,5 +81,14 @@ export default {
     box-sizing: border-box;
     float: right;
   }
+}
+  @media only screen and (max-width: 1500px) {
+    .content{
+      width: 1170px;
+      .content-box {
+        width:730px ;
+    }
+    }
+    
 }
 </style>
